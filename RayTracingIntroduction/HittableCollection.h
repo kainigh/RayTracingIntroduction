@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Hittable.h"
 #include <memory>
 #include <vector>
@@ -15,6 +16,6 @@ public:
 	void Clear() { mPool.clear(); }
 	void Add(std::shared_ptr<Hittable> hittable) { mPool.push_back(hittable); }
 
-	bool Hit(const ray& rRay, double rayTimeMin, double rayTimeMax, HitInfo& hitInfo) const override;
+	bool Hit(const Ray& rRay, Interval rayTime, HitInfo& hitInfo) const override;
 };
 

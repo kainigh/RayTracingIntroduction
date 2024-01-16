@@ -1,13 +1,14 @@
+
 #ifndef RAY_H
 #define RAY_H
 
 #include "Vector3.h"
 
-class ray {
+class Ray {
 public:
-    ray() {}
+    Ray() {}
 
-    ray(const Position& origin, const Vector3& direction) : orig(origin), dir(direction) {}
+    Ray(const Position& origin, const Vector3& direction) : orig(origin), dir(direction) {}
 
     Position GetOrigin() const { return orig; }
     Vector3 GetDirection() const { return dir; }

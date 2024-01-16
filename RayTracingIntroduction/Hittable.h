@@ -1,5 +1,6 @@
 #pragma once
 #include "Ray.h"
+#include "Interval.h"
 
 class HitInfo
 {
@@ -9,7 +10,7 @@ public:
 	double time;
 	bool frontFace;
 
-	void SetFaceNormal(const ray& rRay, const Vector3& outwardNormal)
+	void SetFaceNormal(const Ray& rRay, const Vector3& outwardNormal)
 	{
 		//NOTE : The outwardNormal vector should be unit length
 		frontFace = Dot(rRay.GetDirection(), outwardNormal) < 0;
@@ -22,5 +23,5 @@ class Hittable
 {
 public:
 	virtual ~Hittable() = default;
-	virtual bool Hit(const ray& rRay, double rayTimeMin, double rayTimeMax, HitInfo& hitInfo) const = 0;
+	virtual bool Hit(const Ray& rRay, Interval rayTime, HitInfo& hitInfo) const = 0;
 };

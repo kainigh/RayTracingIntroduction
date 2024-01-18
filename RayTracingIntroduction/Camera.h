@@ -8,15 +8,17 @@ class Camera
 {
 public:
 	Camera() = default;
-	Camera(double imageWidth, double ratio, int samplePerPixel = 10, int bounces = 10) :
-	aspectRatio(ratio), width(imageWidth), sampleCount(samplePerPixel), maxBounces(bounces) {}
+	Camera(double imageWidth, double ratio, int samplePerPixel = 10, int bounces = 10, double vFoV = 90) :
+	aspectRatio(ratio), width(imageWidth), sampleCount(samplePerPixel), maxBounces(bounces), verticalFoV(vFoV) {}
 
 	void Render(const Hittable& rWorld);
+
 private:
 	int height;
 	double aspectRatio, width;
 	int sampleCount;
 	int maxBounces;
+	double verticalFoV;
 	Position center, originPixelLocation;
 	Vector3 pixelDeltaX, pixelDeltaY;
 

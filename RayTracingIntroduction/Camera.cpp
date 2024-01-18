@@ -34,7 +34,9 @@ void Camera::Initialize()
 
     center = Position(0, 0, 0);
     double focalLength = 1;
-    double viewportHeight = 2;
+    double theta = DegToRad(verticalFoV);
+    double h = tan(theta / 2);
+    double viewportHeight = 2 * h * focalLength;
     double viewportWidth = viewportHeight * (static_cast<double>(width) / height);
 
     Vector3 viewportX = Vector3(viewportWidth, 0, 0);

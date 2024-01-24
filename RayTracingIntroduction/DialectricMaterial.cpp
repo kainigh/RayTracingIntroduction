@@ -24,7 +24,7 @@ bool DialectricMaterial::Scatter(const Ray& rRayIn, const HitInfo& hitInfo, Colo
 	bool cannotRefract = refractionRatio * sinTheta > 1.0;
 	Vector3 direction;
 
-	if (cannotRefract) direction = Reflect(unitDirection, hitInfo.normal);
+	if (cannotRefract || Reflectance(cosTheta, refractionRatio) > RandomDouble()) direction = Reflect(unitDirection, hitInfo.normal);
 	else direction = Refract(unitDirection, hitInfo.normal, refractionRatio);
 
 	scattered = Ray(hitInfo.coordinates, direction);

@@ -8,7 +8,8 @@ void Camera::Render(const Hittable& rWorld)
 {
     Initialize();
     cout << "P3\n" << width << ' ' << height << "\n255\n";
-    for (int y = 0; y < height; y++)
+    //for (int y = 0; y < height; y++)
+    for (int y = height-1; y >= 0; y--)
     {
         clog << "Progress : " << (y * 100 / height) << " %\n" << flush;
         for (int x = 0; x < width; x++)
